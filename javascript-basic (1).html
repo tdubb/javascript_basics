@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>Javascript Bare</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  // alert('Hello World!');
+  // var name = prompt("What is your name?");
+  // alert('Nice to meet you, ' + name);
+
+  // var firstName = prompt("What's your first name?");
+  // var lastName = prompt("What's your last name?");
+  // alert(firstName + " " + lastName);
+
+  // var string = prompt("Please type a string");
+  // alert(string.toUpperCase());
+
+  // var firstName = prompt("Whats your first name?");
+  // var lastName = prompt("What's your last name?");
+  // alert("Hello " + firstName + " " + lastName.toUpperCase());
+
+
+  // userAge = prompt("What's your age?");
+  // if (userAge <= 20) {
+  // 	alert("Get outa here!");
+  // } 
+  // else {
+  // 	alert("Come on in");
+  // }
+ var mattTaken = false;
+ var tyTaken = false;
+ var otherTaken = false;
+  while (true) {  			
+  	var name = prompt('Seat me');
+  	if (name === 'Matt') {
+  		if (mattTaken == false) {
+  			alert("Come on in");
+  			mattTaken = true;
+  		}
+  		else {
+  			alert("That reservation is taken.");
+  		  	break;
+  		}
+  	}
+	else if (name === 'Tyler') {
+	  	if (tyTaken == false) {
+ 			alert("Come on in");
+ 			tyTaken = true;
+ 		}
+ 		else {
+ 			alert("That reservation is taken.");
+		
+ 		  	break;
+ 		}
+ 	}
+	else if (name === 'Other') {
+  		if (otherTaken == false) {
+	  		alert("Come on in");
+	  		otherTaken = true;
+  		}
+  		else {
+	  		alert("That reservation is taken.");
+	  	  	break;
+  		}
+  	}
+	else {
+		alert("You dont' have a reservation");
+	}
+  }
+
+
+</script>
+
+</body>
+</html>
+
+
+ 
