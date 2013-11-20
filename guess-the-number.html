@@ -4,8 +4,8 @@
 </head>
 <body style="text-align: center;">
 
-<label>Pick a Number from 1-100:</label>
-<div id="landmine"></div>
+<label >Pick a Number from 1-100:</label>
+<div id="landmine" style="width: 25%; margin: 0 auto;" ></div>
 <label id="response"></label>
 
 
@@ -19,22 +19,32 @@
 
 var secretNumber = parseInt(Math.random() * 100, 10) + 1;
 var landmine = parseInt(Math.random() * 100, 10) + 1;
+var landmine1 = parseInt(Math.random() * 100, 10) + 1;
+var landmine2 = parseInt(Math.random() * 100, 10) + 1;
 
 
 
-var play = function (secretNumber, us, x) {
+var play = function (secretNumber, us, myLandmine) {
+
+	if (myLandmine === 1) {
+		$('#landmine').css("background-color", "red");
+	}
+	else if (myLandmine < 5) {
+		$('#landmine').css("background-color", "yellow");
+	}
+	else {
+		$('#landmine').css("background-color", "grey");
+	}
 	if (us == landmine) {
 		$('#response').text('Sorry you Lose.');
 	}
 	else if (secretNumber > us) {
 		$('#response').text('Guess Higher!'); 
-		$('#landmine').text('Your guess is ' + x + ' away from the landmine');
-		// us = prompt("guess higher");
+		$('#landmine').text('Your guess is ' + myLandmine + ' away from the landmine');
 	}
 	else if (secretNumber < us) {
 		$('#response').text('Guess Lower');
-		$('#landmine').text('Your guess is ' + x + ' away from the landmine');
-		// us = prompt("guess lower");
+		$('#landmine').text('Your guess is ' + myLandmine + ' away from the landmine');
 	}
 	else {
 		$('#response').text('congrats you win');
@@ -50,8 +60,23 @@ var play = function (secretNumber, us, x) {
 
 $('#submit-button').on('click', function (e) {
 	var user_number = $('#user-input').val();
-	var x = Math.abs(user_number - landmine);
- 	play(secretNumber, user_number, x, landmine);
+	var someLandmines = function () {
+		var a = Math.abs(user_number - landmine);
+		var b = Math.abs(user_number - landmine1);
+		var c = Math.abs(user_number - landmine2);
+		if (a < b && a < c) {
+			return a;
+		}
+		else if (b < a && b < c) {
+			return b;
+		}
+		else {
+			return c;
+		}
+	};
+
+	var myLandmine = someLandmines();
+ 	play(secretNumber, user_number, myLandmine);
 	$('#user-input').val(' ');
 
 	});	 
