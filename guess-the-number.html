@@ -17,12 +17,45 @@
 <script type="text/javascript">
 
 var secretNumber = parseInt(Math.random() * 100, 10) + 1;
+var landmine = parseInt(Math.random() * 100, 10) + 1;
+
+
+
+var play = function (secretNumber, us, x) {
+	if (us == landmine) {
+		$('#response').text('Sorry you Lose.');
+	}
+	else if (secretNumber > us) {
+		$('#response').text('Guess Higher!\n Your guess is ' + x + ' away from the landmine');
+		// us = prompt("guess higher");
+	}
+	else if (secretNumber < us) {
+		$('#response').text('Guess Lower!\n Your guess is ' + x + ' away from the landmine');
+		// us = prompt("guess lower");
+	}
+	else {
+		$('#response').text('congrats you win');
+		$('#submit-button2').show();
+	}
+};
+
+
+		
+		
+
+
 
 $('#submit-button').on('click', function (e) {
 	var user_number = $('#user-input').val();
+	var x = Math.abs(user_number - landmine);
+ 	play(secretNumber, user_number, x, landmine);
 	$('#user-input').val(' ');
- 	play(secretNumber, user_number);
+
 	});	 
+
+
+
+
 
 $('#submit-button2').on('click', function (e) {
 	$('#response').text('Game began');
@@ -40,28 +73,9 @@ $('#submit-button2').hide();
 $('#response').text('Game began');
 	
 
-var play = function (secretNumber, user_number) {
-		
-	if (secretNumber > user_number) {
-		$('#response').text('Guess Higher!');
-		// user_number = prompt("guess higher");
-	}
-	else if (secretNumber < user_number) {
-		$('#response').text('Guess Lower!');
-		// user_number = prompt("guess lower");
-	}
-	else {
-		$('#response').text('congrats you win');
-		$('#submit-button2').show();
-	}
-}
 
-
-		
-		
 	
 	
-
 
 
 </script>
