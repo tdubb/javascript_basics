@@ -1,0 +1,83 @@
+<html>
+
+<head>
+  <title>Javascript Functions</title>
+  <style type="text/css">
+    .spacer {
+      height: 2500px;
+    }
+    #box {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <label>Clicks: 0</label>
+  <div class="spacer">
+    Scroll down (all the way down)
+  </div>
+
+  <p>
+    You see a box.
+    <a id="open-link" href="#">Open the box</a>
+  </p>
+
+  <p id="box">Surprise!
+  <button id="closeBox" text="Close Box"></button>
+  </p>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    // $('#open-link').on('click', function (e) {
+    //   e.preventDefault();
+    //   $('#box').show();
+    //   $('#closeBox').on('click', function (e) {
+    //     $('#box').hide();
+    //   });
+    // });
+
+    // var clickCount = 0;
+
+    // $(document).on('click', function (e) {
+    //   clickCount++;
+    //   $('label').text('Clicks: ' + clickCount);
+    //   $(document).trigger('new-click-count', clickCount);
+    // });
+
+    // $(document).on('new-click-count', function(e, clickCount) {
+    //   if (clickCount % 5 === 0) {
+    //     alert("New High Score: " + clickCount);
+    //   }      
+    // });
+
+    var clickCount = 0;
+
+    $(document).on('click', function (e) {
+      clickCount++;
+      $('label').text('Clicks: ' + clickCount);
+      if (clickCount % 5 === 0) {
+        alert("New High Score: " + clickCount);
+      } 
+    });
+
+    // $(document).on('click', function() {
+    //   if (clickCount % 5 === 0) {
+    //     alert("New High Score: " + clickCount);
+    //   }      
+    // });
+    
+// $(document).on('game-result', function (e, playerOne, playerTwo, result) {
+//   if (result === 'one') {
+//     alert(playerOne + ' has defeated ' + playerTwo);
+//   }
+//   else {
+//     alert(playerTwo + ' has defeated ' + playerOne);
+//   }
+// });
+
+// $(document).trigger('game-result', ['Alice', 'Bob', '']);
+//   </script>
+
+</body>
+</html>
