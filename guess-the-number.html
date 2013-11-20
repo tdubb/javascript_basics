@@ -5,8 +5,9 @@
 <body style="text-align: center;">
 
 <label>Pick a Number from 1-100:</label>
-<br>
+<div id="landmine"></div>
 <label id="response"></label>
+
 
 <br>
 <input id="user-input" type="text" />
@@ -26,11 +27,13 @@ var play = function (secretNumber, us, x) {
 		$('#response').text('Sorry you Lose.');
 	}
 	else if (secretNumber > us) {
-		$('#response').text('Guess Higher!\n Your guess is ' + x + ' away from the landmine');
+		$('#response').text('Guess Higher!'); 
+		$('#landmine').text('Your guess is ' + x + ' away from the landmine');
 		// us = prompt("guess higher");
 	}
 	else if (secretNumber < us) {
-		$('#response').text('Guess Lower!\n Your guess is ' + x + ' away from the landmine');
+		$('#response').text('Guess Lower');
+		$('#landmine').text('Your guess is ' + x + ' away from the landmine');
 		// us = prompt("guess lower");
 	}
 	else {
