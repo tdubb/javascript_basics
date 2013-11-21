@@ -1,0 +1,144 @@
+<html>
+<head>
+  <title>Javascript Bare</title>
+</head>
+<body>
+
+
+
+<button id="my-button">I'm cute as a button!</button>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+
+var serveMessage = function (string1, string2, x) {
+	return string1 + " " + x(string2);
+};
+
+
+var result = serveMessage('Bob','call me', function (exampleString) {
+	return "Can you please " + exampleString + '?';
+});
+console.log(result);
+
+result = serveMessage('Bob','call me', function (exampleString) {
+ 	return exampleString.toUpperCase();
+})
+console.log(result);
+
+
+// $('#my-button').on('click', function () {
+// 	alert('ouch... *cough cough*');
+// });
+
+
+
+
+
+// var square = function (x) { return x * x; }
+// console.log('square:', square(7), 'a string', 324, 'Cool!');
+
+
+// var yell = function (exampleString) {
+// 	return exampleString.toUpperCase();
+// };
+
+// var ask = function (exampleString) {
+// 	return "Can you please " + exampleString + '?';
+// };
+
+// var serveMessage = function (string1, string2, x) {
+// 	return string1 + " " + x(string2);
+// };
+
+
+// var ex1 = yell('what?');
+// console.log('Ex1 should be "WHAT?!":', ex1);
+
+// var ex2 = ask('open the door');
+// console.log('Ex2 should be "Can you please open the door?":', ex2);
+
+// var ex3 = serveMessage('Bob','call me', ask);
+// console.log('Ex3 should be "Bob: Can you please call me?":', ex3);
+
+// var ex4 = serveMessage('Bob','call me', yell);
+// console.log('Ex4 should be "Bob: CALL ME!":', ex4);
+
+
+
+// var displayData = function (alertDataFunc, logDataFunc, data) {
+//   alertDataFunc(data);
+//   logDataFunc(data);
+// }
+
+// var logData = function(dataParam) {
+// 	console.log(dataParam);
+// };
+
+// displayData(alert, logData, "IMPORTANT MESSAGE: I like your shirt.");
+
+
+
+
+// var serveTime = function (x) {
+// 	x(Date.timeNow);
+// };
+
+// var logTime = function (time) {
+//   console.log('The current time is:', time);
+// };
+// var alertTime = function (time) {
+//   alert('The current time is: ' + time);
+// };
+
+// serveTime(logTime);
+// serveTime(alertTime);
+
+
+
+
+
+
+// var doubleUp = function (x) {
+// 	x();
+// 	x();
+// };
+
+// var punch = function () {
+//   alert('POWA!');
+// };
+// var kick = function () {
+//   alert('KIA!');
+// }
+
+// doubleUp(punch); // This should alert twice
+// doubleUp(kick); // This should alert twice
+
+ 
+
+
+
+
+
+
+// var poke = 0;
+
+// $('#poke').on('click', function (e) {
+// 	poke += 1;
+// 	$('#poke-count').text(poke);
+// });
+
+// $('a').on('click', function (e) {
+// 	e.preventDefault();
+// 	alert("No Google for you")
+// });
+
+
+</script>
+
+</body>
+</html>
+
