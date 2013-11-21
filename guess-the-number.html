@@ -17,6 +17,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 
+
+
 var secretNumber = parseInt(Math.random() * 100, 10) + 1;
 var landmine = parseInt(Math.random() * 100, 10) + 1;
 var landmine1 = parseInt(Math.random() * 100, 10) + 1;
@@ -26,17 +28,19 @@ var landmine2 = parseInt(Math.random() * 100, 10) + 1;
 
 var play = function (secretNumber, us, myLandmine) {
 
-	if (myLandmine === 1) {
+	if (myLandmine == 1) {
 		$('#landmine').css("background-color", "red");
 	}
-	else if (myLandmine < 5) {
+	else if (myLandmine < 5 && myLandmine > 1) {
 		$('#landmine').css("background-color", "yellow");
 	}
 	else {
 		$('#landmine').css("background-color", "grey");
 	}
-	if (us == landmine) {
+	if (myLandmine === 0) {
 		$('#response').text('Sorry you Lose.');
+		$('#submit-button2').show();
+		$('#landmine').text('Oh no')
 	}
 	else if (secretNumber > us) {
 		$('#response').text('Guess Higher!'); 
@@ -49,14 +53,10 @@ var play = function (secretNumber, us, myLandmine) {
 	else {
 		$('#response').text('congrats you win');
 		$('#submit-button2').show();
+		$('#landmine').text('Hooray');
+		$('#landmine').css('background-color', 'green');
 	}
 };
-
-
-		
-		
-
-
 
 $('#submit-button').on('click', function (e) {
 	var user_number = $('#user-input').val();
@@ -81,40 +81,31 @@ $('#submit-button').on('click', function (e) {
 
 	});	 
 
-
-
-
-
 $('#submit-button2').on('click', function (e) {
 	$('#response').text('Game began');
  	$('#submit-button2').hide();
+ 	$('#landmine').text('Welcome Back');
  	$('#user-input').val(' ');
-	secretNumber = parseInt(Math.random() * 100, 10) + 1;
- 	play(secretNumber, user_number);		 
+ 	secretNumber = parseInt(Math.random() * 100, 10) + 1;
+	landmine = parseInt(Math.random() * 100, 10) + 1;
+	landmine1 = parseInt(Math.random() * 100, 10) + 1;
+	landmine2 = parseInt(Math.random() * 100, 10) + 1;
+
+	
+ 	play(secretNumber, user_number, myLandmine);
+	$('#user-input').val(' ');
+
 	});	 
-$('#submit-button2').on('click', function (e) {
-   	
-	});
-$('#submit-button2').hide();
+	$('#submit-button2').on('click', function (e) {
+	   	
+		});
+	$('#submit-button2').hide();
 
-	
-$('#response').text('Game began');
-	
-
-
-	
-	
+		
+	$('#response').text('Game began');
 
 
 </script>
 
 </body>
 </html>
-
-
-<!-- $('#response').text('Hi there');
-
-$('#submit-button').on('click', function (e) {
-	var user_input = $('#user-input').val();
- 	alert('You typed in: ' + input);
-});	 -->
